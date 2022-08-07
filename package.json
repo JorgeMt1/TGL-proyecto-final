@@ -1,0 +1,13 @@
+{
+  "name": "tgl-proyecto-final",
+  "version": "1.0.0",
+  "description": "Proyecto final para el Top Gun Lab",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "nodeS index.js",
+    "lint": "eslint"
+  },
+  "author": "",
+  "license": "ISC"
+}

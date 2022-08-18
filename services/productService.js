@@ -1,3 +1,7 @@
+const boom = require('@hapi/boom');
+
+const sequelize = require('../libs/sequelize');
+
 class ProductsServices{
 
     constructor(){
@@ -14,17 +18,27 @@ class ProductsServices{
     }
 
     async find(){
-        return this.products;
+        const query ='SELECT * FROM task'
+        const [data] = await this.sequelize.query(query);
+        return data;
     }
 
     async findOne(id){
-        return this.products.find(item => item.id == id);
+        const product = this.products.find(item => item.id == id);
+        
+        if(!product){
+            throw boom.notFound('Product not found');
+        }
+        if (product.isBlock) {
+            throw boom.conflict('Product is block');
+        }
+        return product;
     }
 
     async update(id, changes){
         const index = this.products.findIndex(item => item.id == id);
         if (index === -1){
-            throw new Error('Product not found')
+            throw boom.notFound('Product not found');
         }
         const product = this.products[index]
         this.products[index] = {
@@ -37,7 +51,7 @@ class ProductsServices{
     async delete(){
         const index = this.products.findIndex(item => item.id == id);
         if (index === -1){
-            throw new Error('Product not found')
+            throw boom.notFound('Product not found');
         }
         this.products.splice(index, 1);
         return { id }

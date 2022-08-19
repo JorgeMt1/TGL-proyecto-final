@@ -1,6 +1,5 @@
 const boom = require('@hapi/boom');
-
-const sequelize = require('../libs/sequelize');
+const setupModels = require('../db/models');
 
 class ProductsServices{
 
@@ -19,7 +18,7 @@ class ProductsServices{
 
     async find(){
         const query ='SELECT * FROM task'
-        const [data] = await this.sequelize.query(query);
+        const [data] = await setupModels.Produc.findAll();
         return data;
     }
 

@@ -1,7 +1,7 @@
 const express = require('express');
-const ProductsService = require('./../services/productService');
-const validartorHandler = require('./../middlewares/validatorHandler');
-const { createProductSchema, updateProductSchema, getProductSchema } = require('./../schemas/productSchema');
+const ProductsService = require('../services/productService');
+const validartorHandler = require('../middlewares/validatorHandler');
+const { createProductSchema, updateProductSchema, getProductSchema } = require('../schemas/productSchema');
 const router = express.Router();
 
 const service = new ProductsService();
@@ -33,16 +33,6 @@ router.post('/',
     }
 );
 
-router.put('/:id', async (req, res) =>{
-    const { id } = req.params;
-    const body = req.body;
-    res.json({
-        id,
-        message:'updated',
-        data: body
-    })
-});
-
 router.patch('/:id', 
   validartorHandler(getProductSchema, 'params'),
   validartorHandler(updateProductSchema, 'body'), 
@@ -57,11 +47,16 @@ router.patch('/:id',
     }
 });
 
-router.delete('/:id', async (req, res) =>{
-    const { id } = req.params;
-    const rta = await service.delete(id);
-    res.json(rta);
-});
-
-
+router.delete('/:id',
+  validatorHandler(getProductSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await service.delete(id);
+      res.status(201).json({id});
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 module.exports = router;

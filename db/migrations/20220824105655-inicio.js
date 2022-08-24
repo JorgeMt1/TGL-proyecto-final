@@ -1,11 +1,11 @@
 'use strict';
 
-const { USER_TABLE } = require('./../models/userModel');
-const { CUSTOMER_TABLE } = require('./../models/customerModel');
-const { CATEGORY_TABLE } = require('./../models/categoryModel');
-const { PRODUCT_TABLE } = require('./../models/productModel');
-const { ORDER_TABLE } = require('./../models/orderModel');
-const { ORDER_PRODUCT_TABLE } = require('./../models/order-productModel');
+const { USER_TABLE } = require('../models/userModel');
+const { CUSTOMER_TABLE } = require('../models/customerModel');
+const { CATEGORY_TABLE } = require('../models/categoryModel');
+const { PRODUCT_TABLE } = require('../models/productModel');
+const { ORDER_TABLE } = require('../models/orderModel');
+const { ORDER_PRODUCT_TABLE } = require('../models/order-productModel');
 
 
 module.exports = {

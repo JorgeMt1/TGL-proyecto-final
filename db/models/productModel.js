@@ -1,6 +1,5 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
-
-const { CATEGORY_TABLE } = require('./category.model');
+const { CATEGORY_TABLE } = require('./categoryModel');
 
 const PRODUCT_TABLE = 'products';
 
@@ -45,7 +44,6 @@ const ProductSchema = {
     onDelete: 'SET NULL'
   }
 }
-
 
 class Product extends Model {
 

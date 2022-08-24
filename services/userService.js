@@ -11,8 +11,10 @@ class UserService {
   }
 
   async find() {
-    const users = await models.User.findAll();
-    return users;
+    const rta = await models.User.findAll({
+      include: ['customer']
+    });
+    return rta;
   }
 
   async findOne(id) {
@@ -24,13 +26,13 @@ class UserService {
   }
 
   async update(id, changes) {
-    const user = await models.User.findOne(id);
+    const user = await this.findOne(id);
     const rta = await user.update(changes);
     return rta;
   }
 
   async delete(id) {
-    const user = await models.User.findOne(id);
+    const user = await this.findOne(id);
     await user.destroy();
     return { id };
   }

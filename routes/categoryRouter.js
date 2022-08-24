@@ -1,23 +1,23 @@
 const express = require('express');
-const validatorHandler = require('../middlewares/validatorHandler');
-const router = express.Router();
-const UserService = require('../services/userService');
-const service = new UserService()
 
-const {createUserSchema, updateUserSchema, getUserSchema } = require('../schemas/userSchema');
+const CategoryService = require('./../services/categoryService');
+const validatorHandler = require('./../middlewares/validatorHandler');
+const { createCategorySchema, updateCategorySchema, getCategorySchema } = require('./../schemas/categorySchema');
+
+const router = express.Router();
+const service = new CategoryService();
 
 router.get('/', async (req, res, next) => {
-    try {
-      const users = await service.find();
-      res.json(users);
-    } catch (error) {
-      next(error);
-    }
-  });
-  
+  try {
+    const categories = await service.find();
+    res.json(categories);
+  } catch (error) {
+    next(error);
+  }
+});
 
-  router.get('/:id',
-  validatorHandler(getUserSchema, 'params'),
+router.get('/:id',
+  validatorHandler(getCategorySchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -30,7 +30,7 @@ router.get('/', async (req, res, next) => {
 );
 
 router.post('/',
-  validatorHandler(createUserSchema, 'body'),
+  validatorHandler(createCategorySchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
@@ -43,8 +43,8 @@ router.post('/',
 );
 
 router.patch('/:id',
-  validatorHandler(getUserSchema, 'params'),
-  validatorHandler(updateUserSchema, 'body'),
+  validatorHandler(getCategorySchema, 'params'),
+  validatorHandler(updateCategorySchema, 'body'),
   async (req, res, next) => {
     try {
       const { id } = req.params;
@@ -58,7 +58,7 @@ router.patch('/:id',
 );
 
 router.delete('/:id',
-  validatorHandler(getUserSchema, 'params'),
+  validatorHandler(getCategorySchema, 'params'),
   async (req, res, next) => {
     try {
       const { id } = req.params;

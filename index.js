@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors(options));
+app.use(cors());
 
 app.get('/', (req, res) =>{
   res.send('Hola Mundo!');
@@ -20,7 +20,6 @@ app.use(logErrors);
 app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
-
 
 app.listen(port, (req, res)=>{
   console.log(`Mi port ${port}`);

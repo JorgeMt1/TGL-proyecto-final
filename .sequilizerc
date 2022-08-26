@@ -1,5 +1,0 @@
-module.exports = {
-    'config': './db/config.js',
-    'models-path': './db/models/',
-    'migrations-path': './db/migrations/',
-}

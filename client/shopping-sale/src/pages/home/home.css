@@ -1,7 +1,0 @@
-.home-middle-container{
-    display: flex;
-    justify-content: space-between;
-}
-.home-middle-container div{
-flex: 2;
-}

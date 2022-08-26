@@ -10,6 +10,8 @@
 .login-logo{
     width: 180px;
     height: 180px;
+    margin-bottom: 20px;
+    justify-self: center;
 }
 
 .login-container-form{
@@ -21,14 +23,23 @@
 .login-container-form input{
     border-radius: 10px;
     margin-bottom: 12px;
-    width: 200px;
-    height: 20px;
+    width: 250px;
+    height: 25px;
 }
 
 .login-container button{
 
-    width: 200px;
-    height: 35px;
-    margin-bottom: 12px;
-
+    width: 250px;
+    height: 40px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    border: none;
+    background-color: orange;
+    border-radius: 8px;
+	cursor: pointer;
 }
+
+.login-container a{
+    text-decoration: none;
+ }
+ 

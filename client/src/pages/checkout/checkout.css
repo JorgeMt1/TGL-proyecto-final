@@ -1,0 +1,9 @@
+.checkout-container{
+    display: grid;
+	place-items: center;
+}
+
+.totalAmount{
+    display: flex;
+    justify-content: space-evenly;
+}

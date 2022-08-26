@@ -1,0 +1,15 @@
+.shopping-product-container{
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    width: 400px;
+    margin-bottom: 28px;
+}
+
+.shopping-product-container img{
+    margin-right: 12px;
+}
+
+.shopping-product-container button{
+    margin-left: 20px;
+}

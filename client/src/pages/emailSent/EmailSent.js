@@ -3,12 +3,12 @@ import './EmailSent.css'
 
 function EmailSent() {
   return (
-    <div className='login-container'>
-      <img className='login-logo' src='assets/letter.png' alt='logo' />
-      <span>Email sent!</span>
+    <div className='email-sent-container'>
+      <img className='email-sent-img' src='assets/letter.png' alt='logo' />
+      <h2>Email sent!</h2>
       <span>Please check out your inbox for instructions</span>
       <button>Login</button>
-      <span>Haven't recived it?<a href=''>Resend</a></span>
+      <span>Haven't recived it? <a href=''>Resend</a></span>
   </div>
   )
 }

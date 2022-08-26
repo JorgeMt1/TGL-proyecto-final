@@ -3,15 +3,15 @@ import './PasswordRecovery.css'
 
 function PasswordRecovery() {
   return (
-    <div className='login-container'>
+    <div className='pswrd-recovery-container'>
       <img className='login-logo' src='assets/shopping-logo.png' alt='logo' />
-      <span>Password recovery</span>
-      <span>Please enter the email addres used to create this account</span>
-      <form className='login-container-form' action='/'>
+      <h1>Password recovery</h1>
+      <span>Please enter the email address used to create this account</span>
+      <form className='pswrd-recovery-form' action='/'>
         <label>Email address</label>
         <input type='text' placeholder='Email address'></input>
       </form>
-      <button>Send</button>
+      <button className='pswrd-recovery-button'>Send</button>
       <a href=''>Go Back</a>
   </div>
   )

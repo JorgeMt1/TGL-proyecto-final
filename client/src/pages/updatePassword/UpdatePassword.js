@@ -4,7 +4,7 @@ import './updatePassword.css'
 function UpdatePassword() {
   return (
     <div className='login-container'>
-      <img className='login-logo' src='assets/shopping-logo.png' alt='logo' />
+      <img className='login-logo' src='assets/padlock.png' alt='logo' />
       <span>Create a new password</span>
       <span>Please enter a new password</span>
       <form className='login-container-form' action='/'>

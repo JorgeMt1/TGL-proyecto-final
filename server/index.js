@@ -1,8 +1,9 @@
 const express = require('express');
 const cors= require('cors');
 const routerApi = require('./routes');
+const { checkApiKey } = require('./middlewares/authHandler')
 
-const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler')
+const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/errorHandler')
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,7 +11,9 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) =>{
+require('./utils/auth')
+
+app.get('/', checkApiKey ,(req, res) =>{
   res.send('Hola Mundo!');
 });
 

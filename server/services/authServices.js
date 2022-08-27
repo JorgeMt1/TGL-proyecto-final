@@ -88,4 +88,4 @@ class AuthService{
     }
 }
 
-module.exports = CategoryService;
+module.exports = AuthService;

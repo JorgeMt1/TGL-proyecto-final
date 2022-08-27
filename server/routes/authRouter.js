@@ -2,7 +2,7 @@ const { response } = require('express');
 const express = require('express');
 const passport = require('passport');
 
-const AuthService = require('./../authService');
+const AuthService = require('./../services/authServices');
 
 const router = express.Router();
 const service = new AuthService();

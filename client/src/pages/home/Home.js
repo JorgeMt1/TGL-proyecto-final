@@ -8,9 +8,13 @@ function Home() {
   return (
     <div className='home-container'>
         <NavBar />
+        <hr />
         <div className='home-middle-container'>
-            <Filters />
             <div className='items'>
+                <Product />
+                <Product />
+                <Product />
+                <Product />
                 <Product />
                 <Product />
                 <Product />

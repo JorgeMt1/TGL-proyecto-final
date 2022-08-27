@@ -3,13 +3,21 @@
     grid-template-columns: auto 1fr auto auto;
     align-items: center;
     width: 400px;
-    margin-bottom: 28px;
+    padding: 24px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
+    border-radius: 12px;
 }
 
 .shopping-product-container img{
-    margin-right: 12px;
+    margin-right: 28px;
 }
 
 .shopping-product-container button{
     margin-left: 20px;
+    background-color: rgb(48, 184, 48);
+    border: none;
+    border-radius: 12px;
+    height: 40px;
+    width: 70px;
+    color: white;
 }

@@ -1,6 +1,7 @@
 .home-middle-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
+    width: 100%;
 }
 
 .items{

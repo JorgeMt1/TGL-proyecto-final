@@ -1,7 +1,7 @@
 import React from 'react'
-import "./account.css"
+import "./createaccount.css"
 
-function Account() {
+function CreateAccount() {
   return (
     <div className="CreateAccount">
 			<div className="CreateAccount-container">
@@ -23,4 +23,4 @@ function Account() {
   )
 }
 
-export default Account;
+export default CreateAccount;

@@ -1,11 +1,19 @@
 .shopping-product-container{
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
     width: 400px;
     padding: 24px;
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
     border-radius: 12px;
+}
+
+.products-amount-input{
+    width: 50px;
+    height: 25px;
+    margin-right: 16px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .shopping-product-container img{

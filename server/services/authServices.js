@@ -22,7 +22,7 @@ class AuthService{
         delete user.dataValues.password;
         return user;
     }
-    signtoken(user){ 
+    signToken(user){ 
         const payload = {
           sub: user.id,
           role: user.role
@@ -31,8 +31,7 @@ class AuthService{
         return {
             user,
             token
-        }
-        };
+        }};
 
     async sendRecovery(email){
         const user = await service.findByEmail(email);  

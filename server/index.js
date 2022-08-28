@@ -9,12 +9,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
-
+app.use(cors({ origin: true }));
 require('./utils/auth')
 
-app.get('/', checkApiKey ,(req, res) =>{
+app.get('/', (req, res) =>{
   res.send('Hola Mundo!');
+});
+
+app.get('/nueva-ruta', checkApiKey, (req, res) => {
+  res.send('Hola, soy una nueva ruta');
 });
 
 routerApi(app);

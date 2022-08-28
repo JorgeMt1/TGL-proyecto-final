@@ -9,7 +9,7 @@ const { createCategorySchema, updateCategorySchema, getCategorySchema } = requir
 const router = express.Router();
 const service = new CategoryService();
 
-router.get('/', 
+router.get('/',  
 async (req, res, next) => {
   try {
     const categories = await service.find();

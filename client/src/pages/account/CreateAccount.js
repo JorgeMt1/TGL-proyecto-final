@@ -31,7 +31,7 @@ function CreateAccount() {
   return (
     <div className="CreateAccount">
 			<div className="CreateAccount-container">
-			<img className='login-logo' src='assets/shopping-logo.png' alt='logo' />
+			<img className='login-logo' src='assets/logo.png' alt='logo' />
 				<h2 className="title">Create account</h2>
 				<form action="/" className="form" ref={form}>
 					<div>

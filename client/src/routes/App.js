@@ -5,8 +5,12 @@ import PasswordRecovery from '../pages/passwordRecovery/PasswordRecovery';
 import EmailSent from '../pages/emailSent/EmailSent';
 import UpdatePassword from '../pages/updatePassword/UpdatePassword';
 import CreateAccount from '../pages/account/CreateAccount';
-import ShoppingProduct from '../components/shoppingProduct/ShoppingProduct';
 import Checkout from '../pages/checkout/Checkout';
+import CategoriesContainer from '../containers/categoriesContainer/CategoriesContainer';
+import CreateCategory from '../containers/createcategory/CreateCategory';
+import ProductDataTable from '../containers/ProdcutDataTable/ProductDataTable';
+import CreateProduct from '../containers/createproduct/CreateProduct';
+import EditProduct from '../containers/EditProduct/EditProduct';
 
 function App() {
   return (
@@ -19,7 +23,12 @@ function App() {
 	<Route path="new-password" element={<UpdatePassword />} />
 	<Route path="signup" element={<CreateAccount />} />
 	<Route path="checkout" element={<Checkout />} />
-	<Route path="*" component={<div>Hola</div>} />
+	<Route path='create-product' element={<CreateProduct />} />
+	<Route path='create-category' element={<CreateCategory />} />
+	<Route path='categories' element={<CategoriesContainer />} />
+	<Route path='ProductDataTable' element={<ProductDataTable />} />
+	<Route path='EditProduct' element={<EditProduct />} />
+	<Route path="*" component={<div>Not found</div>} />
   </Routes>
 </BrowserRouter>
   );

@@ -1,7 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar/NavBar';
 import Product from '../../components/product/Product'
-import Filters from '../../containers/filter/Filters';
 import './home.css'
 
 function Home() {

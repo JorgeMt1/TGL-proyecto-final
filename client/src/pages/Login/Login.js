@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useRef } from 'react';
 
 const axios = require('axios');
+
 let url="http://localhost:3001/api/v1/auth/login";
 
 function Login() {
@@ -27,7 +28,7 @@ function Login() {
 
   return (
     <div className='login-container'>
-      <img className='login-logo' src='assets/shopping-logo.png' alt='logo' />
+      <img className='login-logo' src='assets/logo.png' alt='logo' />
       <form action='/' className='login-container-form' ref={form}>
         <label htmlFor="email">User name</label>
         <input name="email" id="email" type='text' placeholder='Email'></input>

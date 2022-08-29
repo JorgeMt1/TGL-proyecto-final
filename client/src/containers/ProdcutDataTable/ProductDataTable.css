@@ -1,0 +1,77 @@
+.ProductDataTable-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.ProductDataTable-Head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.ProductDataTable-Head-leftside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    flex: 0.7;
+}
+
+.ProductDataTable-Head-leftside button{
+    width: 35%;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    background-color: lightgrey;
+}
+
+.ProductDataTable-Head-rightside{
+flex: 1;
+}
+
+.Datatable-logo{
+    width: 150px;
+    height: 150px;
+}
+
+.crud-container{
+    width: 100%;
+}
+
+.prueba2{
+    margin-right: 20px;
+}
+
+.Edit-Data-Button{
+    border: none;
+    border-radius: 8px;
+    margin-right: 5px;
+    height: 30px;
+    width: 65px;
+    background-color: orange;
+}
+
+.Remove-Data-Button{
+    border: none;
+    border-radius: 8px;
+    margin-left: 5px;
+    height: 30px;
+    width: 65px;
+    background-color: #70c03f;
+}
+
+.ProductDataTable-Return-Button{
+    border: none;
+    border-radius: 8px;
+    margin-left: 5px;
+    height: 50px;
+    width: 120px;
+    margin-bottom: 12px;
+    background-color: lightcoral;
+}

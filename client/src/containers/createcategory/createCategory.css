@@ -1,51 +1,43 @@
 .Createcategory-container{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    width: 100%;
-}
-
-.Createcategory-container div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    height: 65vh;
-    box-shadow: 0px 0px 16px -8px rgba(0,0,0,1);
-    border-radius: 12px;
 }
 
 .Createcategory-container form{
     display: flex;
     flex-direction: column;
-    width: 60%;
+    align-items: center;
+    padding: 30px 0px;
+    width: 35%;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,1);
+    border-radius: 12px;
 }
 
-.Createcategory-container form label{
-    font-weight: bold;
-}
 
 .Createcategory-container form input{
-    border-radius: 8px;
-    height: 32px;
-    margin-top: 4px;
-    margin-bottom: 16px;
-}
-
-.Createcategory-container form button{
-    height: 40px;
-    border: none;
-    margin-bottom: 12px;
-    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 350px;
 }
 
 .Createcategory-button{
     background-color: orange;
+    width: 350px;
+    height: 40px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 8px;
 }
 
 .Createcategory-return-button{
-    background-color: #70c03f;
+    background-color: rgb(48, 184, 48);
+    width: 350px;
+    height: 40px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
 }

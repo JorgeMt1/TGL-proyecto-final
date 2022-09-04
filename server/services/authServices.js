@@ -36,17 +36,16 @@ class AuthService{
     async sendRecovery(email){
         const user = await service.findByEmail(email);  
         if (!user) {
-            throw boom.unauthorized();
+            throw boom.notFound();
         } 
         const payload = { sub: user.id }
-        const token = jwt.sign(payload, config.jwtSecret, {expiresIn: '10mins'});
+        const token = jwt.sign(payload, config.jwtSecret, {expiresIn: '10min'});
         const link = `http://client.com/recovery?token=${token}`;
         await service.update(user.id, {recoveryToken: token});
         const mail= {
             from: config.smtpEmail,
             to: `${user.email}`,
             subject: "Email to restore password",
-            text: "Hello world?",
             html: `<b>Ingresa a este link => ${link}</b>`,
         }
         const rta = await this.sendMail(mail);
@@ -55,26 +54,22 @@ class AuthService{
 
     async changePassword(token, newPassword) {
         try {
-            const payload = jwt.verify(token, config.jwtSecret);
-            const user = await service.findOne(payload.sub);
-            if (user.recoveryToken !== token) {
-                throw boom.unauthorized();
-            }
-            const hash = await bcrypt.hash(newPassword, 10);
-            await service.update(user.id, {recoveryToken: null, password: hash});
-            return { message: 'password changed' }
-        } catch (error) {
+          const payload = jwt.verify(token, config.jwtSecret);
+          const user = await service.findOne(payload.sub);
+          if (user.recoveryToken !== token) {
             throw boom.unauthorized();
+          }
+          const hash = await bcrypt.hash(newPassword, 10);
+          await service.update(user.id, {recoveryToken: null, password: hash});
+          return { message: 'password changed' };
+        } catch (error) {
+          throw boom.unauthorized();
         }
-    }
+      }
 
     async sendMail(infoMail){
-        const user = await service.findByEmail(email);  
-        if (!user) {
-            throw boom.unauthorized();
-        } 
         const transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
+            host: "smtp.gmail.com",
             port: 465,
             secure: true,
             auth: {

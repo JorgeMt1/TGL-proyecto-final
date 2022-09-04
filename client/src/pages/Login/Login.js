@@ -1,44 +1,56 @@
 import React from 'react'
 import './login.css'
 import { useNavigate } from 'react-router-dom'
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const axios = require('axios');
 
-let url="http://localhost:3001/api/v1/auth/login";
+const url="http://localhost:3001/api/v1/auth/login";
 
 function Login() {
   const navigate = useNavigate();
   const form = useRef(null);
-
+  const [show, setShow] = useState(false);
+  
 	const handleSubmit = (event)=>{
 		event.preventDefault();
 		const formData = new FormData(form.current);
 		const data = {
 			email: formData.get('email'),
 			password: formData.get('password'),
-
 		};
-		axios.post(url , data).then(response =>{
-      console.log(response.data.token);
+		axios.post(url , data)
+    .then(response =>{
       localStorage.setItem("token", response.data.token);
-		});
-    navigate('/')
+      setShow(false);
+      navigate('/');
+    })
+    .catch (error => {
+      if(!error.response.data){
+        console.log('No Server Reponse');
+      }
+      else if(error.response.status === 401 || 400){
+        console.log('Wrong user');
+        setShow(true);
+      }
+    });
   }
 
   return (
     <div className='login-container'>
-      <img className='login-logo' src='assets/logo.png' alt='logo' />
-      <form action='/' className='login-container-form' ref={form}>
-        <label htmlFor="email">User name</label>
-        <input name="email" id="email" type='text' placeholder='Email'></input>
-        <label htmlFor="password">Password</label>
-        <input name="password" id="password" type='password' placeholder='Password'></input>
-        <button className='login-button' onClick={handleSubmit}>Login</button>
+      <form onSubmit={handleSubmit} ref={form}>
+        <img className='login-logo' src='assets/logo.png' alt='logo' />
+        {
+         show?<span className='wrong-user' >The email or password you entered is incorrect.</span>:null
+        }
+        <label htmlFor="email">Email</label>
+        <input name='email' type='text' className='login-email' placeholder='Email' required/>
+        <label htmlFor="password">password</label>
+        <input name='password' type='Password' className='login-password' placeholder='Password' required />
+        <button className='login-button'>Login</button>
+        <button className='signup-button' onClick={() => navigate('/signup')}>Sign Up</button>
+        <a href='forgotpassword'>Forgot password?</a>
       </form>
-      <button className='signup-button' onClick={() => navigate('/signup')}>Sign Up</button>
-      <button onClick={()=> handleSubmit()}>prueba</button>
-      <a href=''>Forgot password?</a>
   </div>
   )
 }

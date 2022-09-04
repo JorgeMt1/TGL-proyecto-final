@@ -29,16 +29,14 @@ export default function CreateCategories() {
 
   return (
     <div className='Createcategory-container'>
-      <div>
-      <img src='assets/logo.png' alt='logo'/>
-        <h1>Create Category</h1>
           <form action='/' ref={form}>
+            <img src='assets/logo.png' alt='logo'/>
+            <h1>Create Category</h1>
             <input name='name' id='name' type='text' placeholder='Name'/>
             <input name='image' id='image' type='text'  placeholder='ImageUrl'/>
             <button className='Createcategory-button' onClick={handleSubmit}>Create Category</button>
             <button className='Createcategory-return-button' onClick={() => navigate(-1)}>Return</button>
           </form>
-      </div>
     </div>
   )
 }

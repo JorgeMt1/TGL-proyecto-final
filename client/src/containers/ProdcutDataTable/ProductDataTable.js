@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProductDataTable.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
 import Datatable from 'react-data-table-component';
@@ -12,6 +12,7 @@ const config= { headers: {Authorization: `Bearer ${localStorage.getItem("token")
 
 export default function ProductDataTable() {
   const navigate = useNavigate();
+  let { id } = useParams();
   const [products, setProducts] = useState([]);
   const columns =[
     {
@@ -34,7 +35,7 @@ export default function ProductDataTable() {
       name: "Action",
       cell:(row) => 
       <div>
-        <button className='Edit-Data-Button' onClick={()=> navigate('/EditProduct')}>Edit</button>,
+        <button className='Edit-Data-Button' onClick={()=>navigate('/EditProduct/' + row.id)}>Edit</button>,
         <button className='Remove-Data-Button' id={row.id} onClick={()=> DeleteRow(row)}>Remove</button>
       </div>
     }
@@ -47,7 +48,6 @@ export default function ProductDataTable() {
       console.log(error);
     });
   }, [])
-  console.log(products)
 
   function DeleteRow(row){
     axios.delete(API+ row.id, config);

@@ -18,7 +18,7 @@ function App() {
   <Routes>
     <Route path="/" element={<Home />} />
 	<Route path="login" element={<Login />} />
-	<Route path="password-recovery" element={<PasswordRecovery />} />
+	<Route path="forgotpassword" element={<PasswordRecovery />} />
 	<Route path="send-email" element={<EmailSent />} />
 	<Route path="new-password" element={<UpdatePassword />} />
 	<Route path="signup" element={<CreateAccount />} />
@@ -27,7 +27,7 @@ function App() {
 	<Route path='create-category' element={<CreateCategory />} />
 	<Route path='categories' element={<CategoriesContainer />} />
 	<Route path='ProductDataTable' element={<ProductDataTable />} />
-	<Route path='EditProduct' element={<EditProduct />} />
+	<Route path='EditProduct/:id' element={<EditProduct />} />
 	<Route path="*" component={<div>Not found</div>} />
   </Routes>
 </BrowserRouter>

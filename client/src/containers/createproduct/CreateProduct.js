@@ -31,20 +31,18 @@ export default function CreateProduct() {
     }
 
   return (
-    <div className='Createproduct-container'>
-      <div>
-      <img src='assets/logo.png' alt='logo'/>
-        <h1>Create Product</h1>
-          <form action='/' ref={form}>
-            <input name='name' id='name'type='text' placeholder='Name'/>
-            <input name='price' id="price" type='number' min='10' placeholder='Price'/>
-            <input name='description' id="description" type='text' placeholder='Description'/>
-            <input name='image' id="image" type='text'  placeholder='ImageUrl'/>
-            <input name='categoryId' id="categoryId" type='number' min='1' placeholder='CategoryId'/>
-            <button className='Createproduct-button' onClick={handleSubmit} >Create Product</button>
-            <button className='Createproduct-return-button' onClick={() => navigate("/ProductDataTable")}>Return</button>
+    <div className='Create-product-container'>
+          <form  className='polo' onSubmit={handleSubmit} ref={form}>
+            <img src='assets/logo.png' alt='logo'/>
+            <h1>Create Product</h1>
+            <input name='name' id='name'type='text' placeholder='Name' required/>
+            <input name='price' id="price" type='number' min='10' placeholder='Price' required/>
+            <input name='description' id="description" type='text' placeholder='Description' required/>
+            <input name='image' id="image" type='text'  placeholder='ImageUrl' required/>
+            <input name='categoryId' id="categoryId" type='number' min='1' placeholder='CategoryId' required/>
+            <button className='Create-product-button'>Create Product</button>
+            <button className='Create-product-return-button' onClick={() => navigate("/ProductDataTable")}>Return</button>
           </form>
-      </div>
     </div>
   )
 }

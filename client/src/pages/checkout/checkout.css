@@ -32,16 +32,6 @@
     flex-direction: column;
     width: 300px;
 }
-
-button:nth-child(1){
-    background-color: orange;
-    
-}
-
-button:nth-child(2){
-    background-color: rgb(48, 184, 48);;
-    
-}
     
 .checkout-buttons button{
     border: none;

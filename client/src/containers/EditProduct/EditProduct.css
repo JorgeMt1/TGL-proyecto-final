@@ -1,4 +1,4 @@
-.Createproduct-container{
+.EditProduct-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,45 +7,38 @@
     width: 100%;
 }
 
-.Createproduct-container div{
+.EditProduct-container form{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding: 30px 0px;
     width: 35%;
-    height: 85vh;
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,1);
     border-radius: 12px;
 }
 
-.Createproduct-container form{
-    display: flex;
-    flex-direction: column;
-    width: 60%;
+.EditProduct-container form input{
+    padding: 16px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 350px;
 }
 
-.Createproduct-container form label{
-    font-weight: bold;
-}
-
-.Createproduct-container form input{
-    border-radius: 8px;
-    height: 32px;
-    margin-top: 4px;
-    margin-bottom: 16px;
-}
-
-.Createproduct-container form button{
-    height: 40px;
-    border: none;
-    margin-bottom: 12px;
-    border-radius: 8px;
-}
-
-.Createproduct-button{
+.EditProduct-button{
     background-color: orange;
+    width: 350px;
+    height: 40px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 8px;
 }
 
-.Createproduct-return-button{
-    background-color: #70c03f;
+.EditProduct-return-button{
+    background-color: rgb(48, 184, 48);
+    width: 350px;
+    height: 40px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 8px;
 }

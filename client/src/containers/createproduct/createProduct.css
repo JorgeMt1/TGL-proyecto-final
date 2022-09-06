@@ -24,6 +24,7 @@
 
 .Create-product-button{
     background-color: orange;
+    box-shadow: 0px 3px 2px gray;
     width: 350px;
     height: 40px;
     margin-top: 14px;
@@ -31,11 +32,30 @@
     border-radius: 8px;
 }
 
+.Create-product-button:hover{
+    background-color: rgb(223, 145, 0);
+}
+
+.Create-product-button:active{
+    box-shadow: 0px 1px 2px gray;
+    transform: translateY(2px);
+}
+
 .Create-product-return-button{
     background-color: rgb(48, 184, 48);
+    box-shadow: 0px 3px 2px gray;
     width: 350px;
     height: 40px;
     margin-top: 14px;
     border: none;
     border-radius: 8px;
+}
+
+.Create-product-return-button:hover{
+    background-color: rgb(36, 138, 36);
+}
+
+.Create-product-return-button:active{
+    box-shadow: 0px 1px 2px gray;
+    transform: translateY(2px);
 }

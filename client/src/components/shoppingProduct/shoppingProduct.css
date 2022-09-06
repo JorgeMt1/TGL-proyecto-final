@@ -2,14 +2,14 @@
     display: grid;
     grid-template-columns: auto 1fr auto auto auto;
     align-items: center;
-    width: 400px;
+    width: 500px;
     padding: 24px;
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
     border-radius: 12px;
 }
 
 .products-amount-input{
-    width: 50px;
+    width: 100px;
     height: 25px;
     margin-right: 16px;
     border-radius: 8px;
@@ -17,7 +17,11 @@
 }
 
 .shopping-product-container img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
     margin-right: 28px;
+    object-fit: cover;
 }
 
 .shopping-product-container button{

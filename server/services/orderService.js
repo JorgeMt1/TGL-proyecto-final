@@ -4,8 +4,7 @@ const { models } = require('../libs/sequelize');
 
 class OrderService {
 
-  constructor(){
-  }
+  constructor(){}
 
   async create(data) {
     const customer = await models.Customer.findOne({
@@ -35,7 +34,8 @@ class OrderService {
         {
           association: 'customer',
           include: ['user']
-        }
+        },
+        'items'
       ]
     });
     return orders;

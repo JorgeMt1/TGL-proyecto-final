@@ -1,7 +1,7 @@
 .services-submenu {
-    width: 10rem;
+    width: 8rem;
     position: absolute;
-    top: 67px;
+    top: 84px;
     list-style: none;
     text-align: start;
   }
@@ -21,7 +21,7 @@
   
   .submenu-item {
     display: block;
-    width: 100%;
+    width: 75%;
     height: 100%;
     text-decoration: none;
     color: white;

@@ -7,14 +7,18 @@
 }
 
 .checkout-products{
-    display: grid;
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 60px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 16px -8px rgba(0,0,0,1);
 }
 
 .totalAmount{
     display: flex;
-    flex-direction: column; 
-    align-items: center;
+    justify-content: space-around;
+
 }
 
 .totalAmount span{
@@ -30,12 +34,30 @@
 .checkout-buttons{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    align-items: center;
+    margin-bottom: 16px;
 }
     
 .checkout-buttons button{
     border: none;
     border-radius: 8px;
     margin-top: 16px;
-    padding: 16px;
+    padding: 24px;
+    width: 200px;
+}
+
+.checkout-btn-buy{
+    background-color: orange;
+    width: 250px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 8px;
+}
+
+.checkout-btn-retun{
+    background-color: rgb(48, 184, 48);
+    width: 250px;
+    padding: 24px;
+    border: none;
+    border-radius: 8px;
 }

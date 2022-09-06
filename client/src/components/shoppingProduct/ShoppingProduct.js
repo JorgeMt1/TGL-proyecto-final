@@ -1,14 +1,14 @@
 import React from 'react'
 import './shoppingProduct.css'
 
-export default function ShoppingProduct() {
+export default function ShoppingProduct(props) {
   return (
     <div className='shopping-product-container'>
-        <img src='assets/gears.png' alt='orderimg' />
-        <span>T-shirt</span>
+        <img src={props.data.image} alt='orderimg' />
+        <span>{props.data.name}</span>
         <input type='number' className='products-amount-input' placeholder='amount'/>
-        <span>$30.00</span>
-        <button>Quit</button>
+        <span>{props.data.price}</span>
+        <button onClick={()=> console.log(props)}>Quit</button>
     </div>
   )
 }

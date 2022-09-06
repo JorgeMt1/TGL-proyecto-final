@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProductDataTable.css'
+import './myorders.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/navbar/NavBar';
@@ -8,10 +8,10 @@ import Datatable from 'react-data-table-component';
 
 const axios = require('axios');
 
-const API = 'http://localhost:3001/api/v1/products/';
+const API = 'http://localhost:3001/api/v1/profile/my-orders';
 const config= { headers: {Authorization: `Bearer ${localStorage.getItem("token")}`} };
 
-export default function ProductDataTable() {
+export default function MyOrders() {
   const navigate = useNavigate();
   let { id } = useParams();
   const [products, setProducts] = useState([]);
@@ -21,24 +21,17 @@ export default function ProductDataTable() {
       selector: row => row.id
     },
     {
-      name: "Name",
-      selector: row => row.name
+      name: "Total",
+      selector: row => row.total
     },
     {
-      name: "Description",
-      selector: row => row.description
-    },  
-    {
-      name: "Price",
-      selector: row => row.price
+      name: "Date",
+      selector: row => row.createdAt.substring(0, 10)
     },
     {
       name: "Action",
       cell:(row) => 
-      <div>
-        <button className='Edit-Data-Button' onClick={()=>navigate('/EditProduct/' + row.id)}>Edit</button>,
-        <button className='Remove-Data-Button' id={row.id} onClick={()=> DeleteRow(row)}>Remove</button>
-      </div>
+        <button className='Edit-Data-Button' onClick={()=>navigate('/my-orders/' + row.id)}>Read</button>,
     }
   ]
   useEffect(() =>{
@@ -50,18 +43,13 @@ export default function ProductDataTable() {
     });
   }, [])
 
-  function DeleteRow(row){
-    axios.delete(API+ row.id, config);
-    
-  }
   return (
     <div className= 'ProductDataTable'>
       <Navbar />
       <div className='ProductDataTable-Container'>
       <div className='ProductDataTable-Head'>
         <div className='ProductDataTable-Head-leftside'>
-          <h1>Products Datatable</h1>
-          <button className='ProductDataTable-Create-Button' onClick={() => navigate('/create-product')}>Create Product</button>
+          <h1>My Orders Datatable</h1>
         </div>
         <div className='ProductDataTable-Head-rightside'>
           <img className='Datatable-logo' src='assets/logo.png' alt='logo'/>

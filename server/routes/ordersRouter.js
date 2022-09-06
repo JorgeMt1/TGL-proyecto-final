@@ -13,6 +13,20 @@ const router = express.Router();
 const service = new OrderService();
 
 router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res, next) => {
+    try {
+      const id = req.user.sub
+      const order = await service.findByUser(id);
+      res.json(order);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+router.get(
   '/:id',
   validatorHandler(getOrderSchema, 'params'),
   async (req, res, next) => {
@@ -28,8 +42,7 @@ router.get(
 
 router.post(
   '/',
-  passport.authenticate('jwt', { session: false }),
-  validatorHandler(createOrderSchema, 'body'),
+  passport.authenticate('jwt', {session: false}),
   async (req, res, next) => {
     try {
       const body = {

@@ -35,7 +35,7 @@ export default function CreateCategories() {
             <input name='name' id='name' type='text' placeholder='Name'/>
             <input name='image' id='image' type='text'  placeholder='ImageUrl'/>
             <button className='Createcategory-button' onClick={handleSubmit}>Create Category</button>
-            <button className='Createcategory-return-button' onClick={() => navigate(-1)}>Return</button>
+            <button className='Createcategory-return-button' onClick={() => navigate('/CategoryDataTable')}>Return</button>
           </form>
     </div>
   )

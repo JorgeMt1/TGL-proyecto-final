@@ -69,9 +69,6 @@ function CreateAccount() {
 	  ];
 
 	const handleSubmit = (event)=>{
-
-		console.log(values)
-
 		event.preventDefault();
 		axios.post(url , values).then(response =>{
 			console.log(response);

@@ -4,12 +4,13 @@
     align-items: center;
     box-shadow: 0px 0px 16px -8px rgba(0,0,0,0.68);
     border-radius: 12px;
-    padding: 16px;
+    padding: 14px;
 }
 
 .item-image{
     width: 200px;
     height: 220px;
+    object-fit: contain;
 }
 
 .item-data{
@@ -25,11 +26,23 @@
 .add-to-cart-button{
     background-color: orange;
     border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
     border-radius: 8px;
     width: 80px;
     height: 40px;
-    color: white;
     font-weight: 100px;
+    box-shadow: 0px 3px 2px gray;
+}
+
+.add-to-cart-button:hover{
+    background-color: rgb(223, 145, 0);
+}
+
+.add-to-cart-button:active{
+    box-shadow: 0px 1px 2px gray;
+    transform: translateY(2px);
 }
 
 .hr{

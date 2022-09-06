@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProductDataTable.css'
+import './categorydatatable.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import Navbar from '../../components/navbar/NavBar';
@@ -8,13 +8,13 @@ import Datatable from 'react-data-table-component';
 
 const axios = require('axios');
 
-const API = 'http://localhost:3001/api/v1/products/';
+const API = 'http://localhost:3001/api/v1/categories/';
 const config= { headers: {Authorization: `Bearer ${localStorage.getItem("token")}`} };
 
-export default function ProductDataTable() {
+export default function CategoryDataTable() {
   const navigate = useNavigate();
   let { id } = useParams();
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const columns =[
     {
       name: "Id",
@@ -36,7 +36,7 @@ export default function ProductDataTable() {
       name: "Action",
       cell:(row) => 
       <div>
-        <button className='Edit-Data-Button' onClick={()=>navigate('/EditProduct/' + row.id)}>Edit</button>,
+        <button className='Edit-Data-Button' onClick={()=>navigate('/Editcategory/' + row.id)}>Edit</button>,
         <button className='Remove-Data-Button' id={row.id} onClick={()=> DeleteRow(row)}>Remove</button>
       </div>
     }
@@ -44,7 +44,7 @@ export default function ProductDataTable() {
   useEffect(() =>{
     axios.get(API, config)
     .then(response=>{
-      setProducts(response.data)})
+      setCategories(response.data)})
     .catch(error => {
       console.log(error);
     });
@@ -56,12 +56,12 @@ export default function ProductDataTable() {
   }
   return (
     <div className= 'ProductDataTable'>
-      <Navbar />
-      <div className='ProductDataTable-Container'>
+        <Navbar />
+        <div className='ProductDataTable-Container'>
       <div className='ProductDataTable-Head'>
         <div className='ProductDataTable-Head-leftside'>
-          <h1>Products Datatable</h1>
-          <button className='ProductDataTable-Create-Button' onClick={() => navigate('/create-product')}>Create Product</button>
+          <h1>Categories Datatable</h1>
+          <button className='CategoryDataTable-Create-Button' onClick={() => navigate('/create-category')}>Create Category</button>
         </div>
         <div className='ProductDataTable-Head-rightside'>
           <img className='Datatable-logo' src='assets/logo.png' alt='logo'/>
@@ -70,11 +70,11 @@ export default function ProductDataTable() {
       <div className= 'crud-container'>
         <Datatable
         columns={columns}
-        data={products}
+        data={categories}
         pagination/>
       </div>
-      <button className='ProductDataTable-Return-Button' onClick={() => navigate('/')}>Return</button>
+      <button className='ProductDataTable-Return-Button' onClick={() => navigate(-1)}>Return</button>
     </div>
-      </div>
+    </div>
   )
 }

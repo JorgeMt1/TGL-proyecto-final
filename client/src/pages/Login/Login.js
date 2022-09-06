@@ -1,5 +1,6 @@
 import React from 'react'
 import './login.css'
+import NavBar from '../../components/navbar/NavBar';
 import { useNavigate } from 'react-router-dom'
 import { useRef, useState } from 'react';
 
@@ -22,6 +23,8 @@ function Login() {
 		axios.post(url , data)
     .then(response =>{
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("role", response.data.user.role)
+      console.log(response.data)
       setShow(false);
       navigate('/');
     })
@@ -37,20 +40,23 @@ function Login() {
   }
 
   return (
-    <div className='login-container'>
-      <form onSubmit={handleSubmit} ref={form}>
-        <img className='login-logo' src='assets/logo.png' alt='logo' />
-        {
-         show?<span className='wrong-user' >The email or password you entered is incorrect.</span>:null
-        }
-        <label htmlFor="email">Email</label>
-        <input name='email' type='text' className='login-email' placeholder='Email' required/>
-        <label htmlFor="password">password</label>
-        <input name='password' type='Password' className='login-password' placeholder='Password' required />
-        <button className='login-button'>Login</button>
-        <button className='signup-button' onClick={() => navigate('/signup')}>Sign Up</button>
-        <a href='forgotpassword'>Forgot password?</a>
+    <div className='login'>
+        <NavBar />
+        <div className='login-container'>
+          <form onSubmit={handleSubmit} ref={form}>
+          <img className='login-logo' src='assets/logo.png' alt='logo' />
+          {
+          show?<span className='wrong-user' >The email or password you entered is incorrect.</span>:null
+          }
+          <label htmlFor="email">Email</label>
+          <input name='email' type='text' className='login-email' placeholder='Email' required/>
+          <label htmlFor="password">password</label>
+          <input name='password' type='Password' className='login-password' placeholder='Password' required />
+          <button className='login-button'>Login</button>
+          <button className='signup-button' onClick={() => navigate('/signup')}>Sign Up</button>
+          <a href='forgotpassword'>Forgot password?</a>
       </form>
+        </div>
   </div>
   )
 }

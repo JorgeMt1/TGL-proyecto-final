@@ -9,39 +9,36 @@ function Navbar() {
   const [dropdown, setDropdown] = useState(false);
 
   return (
-    <>
-      <nav className="navbar">
-        <Link to="/login" className="navbar-logo">
-          <img className="navbar-logo" src="assets/logo.png" alt="logo" />
-          LUXERIA
-        </Link>
-        <ul className="nav-items">
-          {navItems.map((item) => {
-            if (item.title === "Categories" && localStorage.getItem("role")=== "admin") {
-              return (
-                <li
-                  key={item.id}
-                  className={item.cName}
-                  onMouseEnter={() => setDropdown(true)}
-                  onMouseLeave={() => setDropdown(false)}
-                >
-                  <Link to={item.path}>{item.title}</Link>
-                  {dropdown && <Dropdown />}
-                </li>
-              );
-            }
-            if((item.title === "Categories" && localStorage.getItem("role") !== "admin")){return}
+    <nav className="navbar">
+      <Link to="/login" className="navbar-logo">
+        <img className="navbar-logo" src="/assets/logo.png" alt="logo" />
+        LUXERIA
+      </Link>
+      <ul className="nav-items">
+        {navItems.map((item) => {
+          if (item.title === "Admin" && localStorage.getItem("role") === "admin") {
             return (
-              <li key={item.id} className={item.cName}>
-                <Link to={item.path}>{item.title}</Link>
+              <li
+                key={item.id}
+                className={item.cName}
+                onMouseEnter={() => setDropdown(true)}
+                onMouseLeave={() => setDropdown(false)}>
+                <Link className="nav-item-link" to={item.path}>{item.title}</Link>
+                {dropdown && <Dropdown />}
               </li>
             );
-          })}
-        </ul>
-        <Button />
-        <Link to="/checkout"><img className="shopping-cart-logo" src="assets/shopping-cart.png" alt="cart-logo" /></Link>
-      </nav>
-    </>
+          }
+          if ((item.title === "Admin" && localStorage.getItem("role") !== "admin")) { return }
+          return (
+            <li key={item.id} className={item.cName}>
+              <Link className="nav-item-link" to={item.path}>{item.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+      {localStorage.getItem("token") && <Button />}
+      <Link to="/checkout"><img className="shopping-cart-logo" src="/assets/shopping-cart2.png" alt="shopping-cart2" /></Link>
+    </nav>
   );
 }
 

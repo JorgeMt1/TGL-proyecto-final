@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 class CustomerService {
 
-  constructor() {}
+  constructor() { }
 
   async find() {
     const rta = await models.Customer.findAll({

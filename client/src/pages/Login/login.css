@@ -1,72 +1,53 @@
-.login-container{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
+.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
 }
 
-.login-container form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 60px;
-    box-shadow: 0px 0px 16px -8px rgba(0,0,0,1);
-    border-radius: 12px;
+.login-form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 1);
+	border-radius: 16px;
+	padding: 25px 35px;
+	width: 25%;
+	height: 70vh;
 }
 
-.login-container form input{
-    padding: 16px;
-    margin: 10px 0px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    width: 220px;
+.login-form-container form {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	margin-top: 50px;
+	margin-bottom: 14px;
+	width: 100%;
 }
 
-.login-button{
-    background-color: orange;
-    width: 250px;
-    height: 40px;
-    margin-top: 14px;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    box-shadow: 0px 3px 2px gray;
-    cursor: pointer;
+.login-form-container input {
+	padding: 16px;
+	margin: 14px 0px;
+	border-radius: 5px;
+	border: 1px solid gray;
 }
 
-.login-button:hover{
-    background-color: rgb(223, 145, 0);
+.login-form-container label {
+	font-size: 12px;
+	color: gray;
 }
 
-.login-button:active{
-    box-shadow: 0px 1px 2px gray;
-    transform: translateY(2px);
+.login-form-container span {
+	position: absolute;
+	text-align: center;
+	font-size: 20px;
+	padding: 1.5px;
+	color: red;
+	bottom: 240px;
 }
 
-.signup-button{
-    background-color: rgb(48, 184, 48);
-    box-shadow: 0px 3px 2px gray;
-    width: 250px;
-    height: 40px;
-    margin-top: 14px;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    cursor: pointer;
+.login-form-container a {
+	text-decoration: none;
+	margin-top: 20px;
 }
-
-.signup-button:hover{
-    background-color: rgb(36, 138, 36);
-}
-
-.signup-button:active{
-    box-shadow: 0px 1px 2px gray;
-    transform: translateY(2px);
-}
-
-.login-container a{
-    margin-top: 14px;
-    text-decoration: none;
- }
- 

@@ -1,8 +1,9 @@
-import React, { useDebugValue } from 'react'
+import React from 'react'
 import NavBar from '../../components/navbar/NavBar';
 import Product from '../../components/product/Product'
 import { useState, useEffect } from 'react';
 import './home.css'
+import Filter from '../../containers/filter/Filter';
 
 const API = 'http://localhost:3001/api/v1/categories/';
 const API2 = 'http://localhost:3001/api/v1/products/';
@@ -40,34 +41,28 @@ function Home() {
     setResult(products);
   }
 
-  const categoryFilter= (catId) => {
+  const setFilter= (catId) => {
     setResult(products.filter((currentData)=>{
-      console.log(currentData)
       return currentData.categoryId === catId;
     }));
-    console.log(result)
   }
 
   return (
-    <div className='home-container'>
-        <NavBar />
-        <div className='home-middle-container'>
-          <div className='home-left-container'>
-            <button onClick={()=>ResetFilter()}>Reset</button>
-            {
-              categories[0]!= undefined && categories.map( items => <button className='filterButton' onClick={()=>categoryFilter(items.id)} key={items.id}>{items.name}</button>)
-            }
-          </div>
+    <div className='home'>
+      <NavBar />
+      <div className='home-middle-container'>
+        {
+          categories.length !=0 && <Filter data={categories} setFilter={setFilter} ResetFilter={ResetFilter}/>
+        }
         <div className='home-right-container'>
           <div className='items'>
             {
-              result[0]!= undefined && result.map( items => <Product key={items.id} data={items}/>)
+              result.length != 0 && result.map(items => <Product key={items.id} data={items}/>)
             }
           </div>
         </div>
-        </div>
+      </div>
     </div>
-    
   )
 }
 

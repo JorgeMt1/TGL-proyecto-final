@@ -1,0 +1,41 @@
+
+.datatable-head {
+	display: flex;
+	width: 100vw;
+	margin-top: 2rem;
+}
+
+.datatable-head-leftside {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 1.5rem;
+	flex: 0.7;
+}
+
+.datatable-head-leftside button {
+	border: none;
+	width: 35%;
+	height: 45px;
+	border-radius: 8px;
+	background-color: rgb(91, 181, 255);
+	box-shadow: 0px 3px 2px gray;
+}
+
+.datatable-head-leftside button:hover {
+	background-color: rgb(74, 148, 207);
+}
+
+.datatable-head-leftside button:active {
+	box-shadow: 0px 1px 2px gray;
+	transform: translateY(2px);
+}
+
+.datatable-head-rightside {
+	flex: 1;
+}
+
+.datatable-head-rightside img {
+	width: 150px;
+	height: 150px;
+}

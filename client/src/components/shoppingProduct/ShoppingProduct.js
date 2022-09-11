@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './shoppingProduct.css'
+import { CartContext } from './../../routes/App'
 
 export default function ShoppingProduct(props) {
+  const context = useContext(CartContext)
+  const { cart, setCart } = context;
+
+  function arrayRemove(arr, value) {
+    return arr.filter(function (ele) {
+      return ele != value;
+    });
+  }
   return (
     <div className='shopping-product-container'>
-        <img src={props.data.image} alt='orderimg' />
-        <span>{props.data.name}</span>
-        <input type='number' className='products-amount-input' placeholder='amount'/>
-        <span>{props.data.price}</span>
-        <button onClick={()=> console.log(props)}>Quit</button>
+      <img src={props.data.image} alt='orderimg' />
+      <span>Name: {props.data.name}</span>
+      <span>Price: {props.data.price}</span>
+      <button onClick={() => setCart(arrayRemove(cart, props.data))}>Quit</button>
     </div>
   )
 }

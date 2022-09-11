@@ -11,8 +11,7 @@ function Dropdown() {
     <>
       <ul
         className={dropdown ? "services-submenu clicked" : "services-submenu"}
-        onClick={() => setDropdown(!dropdown)}
-      >
+        onClick={() => setDropdown(!dropdown)}>
         {serviceDropdown.map((item) => {
           return (
             <li key={item.id}>

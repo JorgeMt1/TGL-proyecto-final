@@ -1,0 +1,33 @@
+.not-found {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-404 {
+  background-color: orange;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  transition: all .3s linear;
+  border-radius: 8px;
+  font-weight: 300;
+  font-size: 1.2em;
+  padding: .5em;
+  width: 25%;
+}
+
+.text-404 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 100;
+}
+
+.title-404 {
+  margin: 0;
+  text-align: center;
+  font-size: 10em;
+  font-weight: 100;
+}

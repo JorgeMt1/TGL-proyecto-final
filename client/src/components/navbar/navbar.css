@@ -1,56 +1,54 @@
 .navbar {
-    height: 9vh;
-    background: rgb(114, 151, 163);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .navbar-logo {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 10rem;
-    height: 5rem;
-    margin-right: 1rem;
-  }
-  
-  .nav-items {
-    margin: 0;
-    display: flex;
-    list-style: none;
-    text-align: center;
-    width: 70vw;
-    justify-content: flex-end;
-    margin-right: 2rem;
-  }
-  
-  .nav-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 9vh;
-    margin-right: 2rem;
-  }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
-    padding: 4px 16px;
-    border-radius: 5px;
-  }
-  
-  .nav-item a:hover {
-    background: lightgreen;
-  }
+  height: 9vh;
+  background: rgb(61, 85, 94);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  .shopping-cart-logo{
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
 
-    width: 3rem;
-    height: 3rem;
-    margin-left: 50px;
-  }
+.nav-items {
+  margin: 0;
+  display: flex;
+  list-style: none;
+  text-align: center;
+  width: 60vw;
+  justify-content: flex-end;
+  justify-content: center;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 9vh;
+  margin-right: 2rem;
+}
+
+.nav-item-link {
+  text-decoration: none;
+  background-color: darkkhaki;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+.nav-item a:hover {
+  background: lightgreen;
+}
+
+.shopping-cart-logo {
+  width: 3rem;
+  height: 3rem;
+}

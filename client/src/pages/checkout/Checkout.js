@@ -1,9 +1,8 @@
-import  React,{ useContext } from 'react'
+import  React,{ useContext, useState } from 'react'
 import ShoppingProduct from '../../components/shoppingProduct/ShoppingProduct';
-import './checkout.css'
-import { Navigate, useNavigate } from 'react-router-dom'
-import {CartContext} from './../../routes/App'
+import { CartContext } from './../../routes/App'
 import Navbar from '../../components/navbar/NavBar';
+import './checkout.css'
 
 const axios = require('axios');
 const config ={
@@ -12,39 +11,25 @@ const config ={
 const url="http://localhost:3001/api/v1/orders";
 
 function Checkout() {
-  const navigate = useNavigate();
   const context = useContext(CartContext)
-  const { cart, setCart} = context;
-  let orderId=0;
-  let data={
-    odrId: orderId,
+  const { cart, setCart } = context;
+  let objetos = []
 
+  const createOder = () => {
+    axios.post(url, "", config)
+      .then(response => {
+        cart.map(elements => objetos.push({
+          orderId: response.data.id,
+          productId: elements.id,
+          amount: 1
+        }))
+      })
 
-  };
-
- /* const createOder= ()=>{
-  //let data = cart.map( item => {item.id});
-  //if(!cart[0]) return;
-  console.log(cart[0])
-  axios.post(url,"" ,config)
-  .then(response =>{
-    orderId= response.data.id;
-    console.log(orderId);
-  })
-  .catch (error => {
-    if(!error.response.data){
-      console.log('No Server Reponse');
-    }
-    else if(error.response.status === 401 || 400){
-      console.log('Wrong user');
-    }
-  });
-
-  /*axios.post(url +"/add-item",orderId ,config)
-  .then(response =>{
-    console.log(response);
-  });
-}*/
+    objetos.map( element => axios.post(url + "/add-item", element, config)
+      .then(response => {
+        console.log(response);
+    }).catch(error => console.log(error)));
+  }
 
   return (
     <div className='checkout'>
@@ -52,16 +37,12 @@ function Checkout() {
       <div className='checkout-container'>
         <div className='checkout-products'>
           {
-            cart.map( items => <ShoppingProduct key={items.id} data={items}/>)
+            cart.length ? cart.map( items => <ShoppingProduct key={items.id} data={items}/>) : <h1>Empty</h1>
           }
         </div>
-        <div className='totalAmount'>
-          <span>Total products:</span>
-          <span>Total amount:</span>
-        </div>
-        <div className='checkout-buttons'>
+        <div className='checkout-products-bottom'>
+          <span className='total-amount'>Total amount: {cart.reduce((a,v) => a = a + v.price,0 )}</span>
           <button className='checkout-btn-buy' onClick={()=> createOder()}>Buy</button>
-          <button className='checkout-btn-retun'onClick={() => console.log(cart)}>Return</button>
         </div>
       </div>
     </div>

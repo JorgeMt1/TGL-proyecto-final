@@ -22,7 +22,7 @@ function ForgotPassword() {
 		};
 		axios.post(url , data)
     .then(response =>{
-      navigate('/send-email');
+      navigate('/email-sent');
     })
     .catch (error => {
       if(!error.response.data){

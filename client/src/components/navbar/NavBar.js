@@ -36,7 +36,7 @@ function Navbar() {
           );
         })}
       </ul>
-      {localStorage.getItem("token") && <Button />}
+      {!localStorage.getItem("token") && <Button />}
       <Link to="/checkout"><img className="shopping-cart-logo" src="/assets/shopping-cart2.png" alt="shopping-cart2" /></Link>
     </nav>
   );

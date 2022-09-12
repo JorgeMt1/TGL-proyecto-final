@@ -40,7 +40,7 @@ export const serviceDropdown = [
   },  
   {
     id: 4,
-    title: "Csutomer",
+    title: "Customer",
     path: "/CustomerDatatable",
     cName: "submenu-item",
   },

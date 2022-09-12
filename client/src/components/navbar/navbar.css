@@ -1,6 +1,6 @@
 .navbar {
   height: 9vh;
-  background: rgb(61, 85, 94);
+  background: #21C7EB;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,7 +37,8 @@
 
 .nav-item-link {
   text-decoration: none;
-  background-color: darkkhaki;
+  background-color: #9E4A00;
+	box-shadow: 0px 3px 2px gray;
   color: white;
   font-size: 1.1rem;
   padding: 12px 20px;

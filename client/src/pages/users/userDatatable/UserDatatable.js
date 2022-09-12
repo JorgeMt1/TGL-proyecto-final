@@ -29,10 +29,6 @@ export default function UserDatatable() {
       selector: row => row.role
     },
     {
-      name: "CustomerId",
-      selector: row =>  row.name
-    },
-    {
       name: "Action",
       cell:(row) => 
       <div className='prueba'>

@@ -35,7 +35,7 @@ export const createInputs = [
   {
     id: 4,
     name: "image",
-    type: "url",
+    type: "text",
     placeholder: "https://imageURL.com/",
     errorMessage:
       "ImageURL should be valid URL!",
@@ -92,7 +92,7 @@ export const editInputs = [
   {
     id: 4,
     name: "image",
-    type: "url",
+    type: "text",
     placeholder: "https://imageURL.com/",
     errorMessage:
       "ImageURL should be valid URL!",

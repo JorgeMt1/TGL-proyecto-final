@@ -4,13 +4,19 @@
   padding: 6px 16px;
   font-size: 1.1rem;
   color: white;
-  background: darkkhaki;
+  background: #9E4A00;
   border-radius: 5px;
   transition: 0.3s all ease-out;
   cursor: pointer;
+  box-shadow: 0px 3px 2px gray;
 }
 
 .btn:hover {
   color: rgb(0, 212, 212);
   background: white;
+}
+
+.btn:active {
+	box-shadow: 0px 1px 2px gray;
+	transform: translateY(2px);
 }
